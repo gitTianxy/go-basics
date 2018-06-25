@@ -20,3 +20,7 @@ func (u User) PublicMethod() {
 func (u User) privateMethod() {
 	fmt.Println("private method")
 }
+
+func (u User) Hello(guest string)  {
+	fmt.Println("hello", guest, ", I'm", u.Name)
+}

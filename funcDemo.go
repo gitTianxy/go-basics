@@ -25,12 +25,14 @@ func main() {
 		fmt.Println("anonymous function")
 	}
 	nf()
-	// 闭包
+	// 闭包: map builder
 	cm := make(map[string]string)
 	mbd := mapBuilder(cm)
 	mbd("name", "kevin")
 	mbd("age", "28")
 	fmt.Println(cm)
+	// 闭包: 值拷贝
+	closureParam()
 }
 
 /**
@@ -62,5 +64,19 @@ func valRef(v int, r *int) {
 func mapBuilder(m map[string]string) func(string, string) {
 	return func(k string, v string) {
 		m[k] = v
+	}
+}
+
+func closureParam() {
+	s := []string{"A", "B", "C", "D"}
+	flag := make(chan bool, len(s))
+	for _, v := range s {
+		go func(v string) {
+			fmt.Println(v)
+			flag <- true
+		}(v)
+	}
+	for i := 0; i < len(s); i++ {
+		<-flag
 	}
 }

@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+/**
+ * break: A "break" statement terminates execution of the innermost "for",
+ * "switch" or "select" statement.
+ */
 func main() {
 	s := 0
 	// for

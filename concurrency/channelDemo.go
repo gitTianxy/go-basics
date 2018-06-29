@@ -15,15 +15,15 @@ var ppFlag chan bool
  * go用channel实现goroutine之间的通信,分别有写(c <- true)和读(<-c)操作
  */
 func main() {
-	channelTask()
-	bufferedChannel()
+	channelTask(5)
+	bufferedChannel(5)
 	selectChannel()
-	pingPong()
+	pingPong(5)
+	mergeChs(5)
 }
 
-func pingPong()  {
+func pingPong(count int) {
 	fmt.Println("*** ping pong demo")
-	count := 10
 	ppFlag = make(chan bool)
 	ppCh = make(chan string)
 	go pong()
@@ -67,33 +67,40 @@ func pong() {
  * 1. 各case执行顺序:
  * 		如果只有一个 case 语句评估通过，那么就执行这个case里的语句;
  * 		如果有多个 case 语句评估通过，那么通过伪随机的方式随机选一个.
- * 2. default case执行:
+ * 2a. default case执行:
  * 		有default: 如果 default 外的 case 语句都没有通过评估，那么执行 default 里的语句;
  *		没有default: 代码块会被阻塞，直到有一个case通过评估
+ * 2b. time.After(Duration): 设置超时
  */
 func selectChannel() {
 	fmt.Println("***select channel demo")
-	o := make(chan bool)
+
+	closed := make(chan bool)
 	c1, c2 := make(chan int), make(chan string)
 	go func() {
-		for {
+		for quit := false; !quit; {
 			select {
 			case v, ok := <-c1:
 				// 如果c1关闭, ok为false
 				if !ok {
 					fmt.Println("c1 closed")
-					o <- true
+					closed <- true
 					break
 				}
 				fmt.Println("c1", v)
 			case v, ok := <-c2:
 				if !ok {
 					fmt.Println("c2 closed")
-					o <- true
+					closed <- true
 					break
 				}
 				fmt.Println("c2", v)
-			default:
+			case <-time.After(5 * time.Second):
+				fmt.Println("wait timeout")
+				closed <- true
+				closed <- true
+				quit = true
+			//default:
 				//fmt.Println("default")
 			}
 		}
@@ -103,15 +110,14 @@ func selectChannel() {
 	c1 <- 2
 	c2 <- "joe"
 
-	close(c2)
-	close(c1)
+	//若一直不关闭c1和c2,则最后走timeout通道退出
+	//close(c1)
+	//close(c2)
 
-	<-o
-	//for i:=0; i<2;i++  {
-	//	<-o
-	//}
+	for i:=0;i<2 ;i++  {
+		<-closed
+	}
 }
-
 
 /**
  * 1. buffered channel
@@ -119,13 +125,12 @@ func selectChannel() {
  * 等待其他goroutine将数据从channel中读出
  * B. 缓冲信道是先进先出的，可以看作一个线程安全的队列
  */
-func bufferedChannel() {
+func bufferedChannel(size int) {
 	fmt.Println("*** buffered channel demo")
-	size := 10
 	ch := make(chan int, size)
 	// write
-	for i:=0;i<size ;i++  {
-		ch <- i*100
+	for i := 0; i < size; i++ {
+		ch <- i * 100
 	}
 	close(ch) //不显示关闭, 则后面read完后会让routine挂起产生死锁
 	// read
@@ -134,10 +139,9 @@ func bufferedChannel() {
 	}
 }
 
-func channelTask() {
+func channelTask(tskNum int) {
 	fmt.Println("***channel task demo")
 	// init tasks
-	tskNum := 10
 	tsks := make([]chTask, tskNum)
 	for i := 0; i < tskNum; i++ {
 		tsks[i] = chTask{"task" + strconv.Itoa(i)}
@@ -167,4 +171,35 @@ func (t chTask) doTask(c chan bool) {
 	}
 	fmt.Println(t.name, "sum:", s)
 	c <- true
+}
+
+/**
+ * 通过`ch1<- <-ch2`将一个ch2的内容流入ch1
+ */
+func mergeChs(num int) {
+	fmt.Println("*** merge channels")
+	chs := make([]chan int, num)
+	for i := 0; i < num; i++ {
+		chs[i] = branch(i)
+	}
+
+	ch := make(chan int)
+	for _, c := range chs {
+		go func(c chan int) {
+			ch <- <-c
+		}(c)
+	}
+
+	for i := 0; i < num; i++ {
+		fmt.Println(<-ch)
+	}
+}
+
+func branch(x int) chan int {
+	ch := make(chan int)
+	go func() {
+		time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
+		ch <- x
+	}()
+	return ch
 }

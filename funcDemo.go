@@ -7,9 +7,11 @@ import (
 /**
  * 1. 函数也是类型: go语言中一切皆类型
  * 2. 多返回值
- * 3. 变长参数
+ * 3. 变长参数: variadic function
  * 4. 值传递
- * 5. 匿名函数: 不能作为顶层函数--必需包在其他函数体中
+ * 5. 匿名函数: anonymous function; 不能作为顶层函数--必需包在其他函数体中
+ * 6. 闭包: closures
+ * 7. 递归函数: recursive function; go语言支持递归函数
  */
 
 func main() {

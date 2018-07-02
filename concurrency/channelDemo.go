@@ -20,6 +20,57 @@ func main() {
 	selectChannel()
 	pingPong(5)
 	mergeChs(5)
+	directionalChs()
+	closeCh(5)
+}
+
+/**
+Closing a channel indicates that no more values will be sent on it.
+This can be useful to communicate completion to the channel’s receivers.
+ */
+func closeCh(count int) {
+	fmt.Println("***close channel demo")
+	work := make(chan int)
+	done := make(chan bool)
+
+	go func() {
+		for {
+			w, more := <-work
+			if more {
+				fmt.Println("todo", w)
+			} else {
+				done <- true
+				break
+			}
+		}
+	}()
+	for i := 0; i < count; i++ {
+		work <- i
+	}
+
+	close(work)
+	<-done
+	fmt.Println("done")
+}
+
+/*
+When using channels as function parameters or return value,
+you can specify if a channel is meant to only send or receive values.
+This specificity increases the type-safety of the program.
+ */
+func directionalChs() {
+	fmt.Println("***directional channels")
+	in := make(chan int)
+	out := make(chan int)
+	go func() {
+		in <- 1
+	}()
+	go func(in <-chan int, out chan<- int) {
+		c := <-in
+		fmt.Println("input:", c)
+		out <- c
+	}(in, out)
+	fmt.Println("output:", <-out)
 }
 
 func pingPong(count int) {
@@ -100,7 +151,7 @@ func selectChannel() {
 				closed <- true
 				closed <- true
 				quit = true
-			//default:
+				//default:
 				//fmt.Println("default")
 			}
 		}
@@ -114,7 +165,7 @@ func selectChannel() {
 	//close(c1)
 	//close(c2)
 
-	for i:=0;i<2 ;i++  {
+	for i := 0; i < 2; i++ {
 		<-closed
 	}
 }

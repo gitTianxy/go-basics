@@ -5,13 +5,17 @@ import (
 	"fmt"
 )
 
+/*
+a `timer` is used to execute GO code after a certain period
+ */
 func main() {
 	t := timer{}
-	t.wait(2*time.Second)
-	t.wait2(2*time.Second)
-	if <-timeout(2*time.Second) {
-		fmt.Println("time out 3")
+	t.wait(2 * time.Second)
+	t.wait2(2 * time.Second)
+	if <-timeout(2 * time.Second) {
+		fmt.Println("time out, by channel blk")
 	}
+	builtinTimer(2 * time.Second)
 }
 
 type timer struct {
@@ -19,7 +23,7 @@ type timer struct {
 
 func (timer timer) wait(dur time.Duration) {
 	time.Sleep(dur)
-	fmt.Println("time out 1")
+	fmt.Println("time out, by time.sleep")
 }
 
 func (timer timer) wait2(dur time.Duration) {
@@ -29,7 +33,7 @@ func (timer timer) wait2(dur time.Duration) {
 		ch <- true
 	}()
 	<-ch
-	fmt.Println("time out 2")
+	fmt.Println("time out, by channel blk")
 }
 
 func timeout(dur time.Duration) chan bool {
@@ -41,3 +45,12 @@ func timeout(dur time.Duration) chan bool {
 	return ch
 }
 
+/**
+1. get a channel timer
+2. do stop before expiration
+ */
+func builtinTimer(ws time.Duration) {
+	timer := time.NewTimer(ws)
+	<-timer.C
+	fmt.Println(ws, "expired")
+}

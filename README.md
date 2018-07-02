@@ -10,3 +10,9 @@
 * reflect
 * concurrency
 * time
+* error
+* patterns
+* json
+* cryptography
+* os
+* execute commands

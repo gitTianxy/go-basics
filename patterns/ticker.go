@@ -8,14 +8,21 @@ import (
 
 /*
 tickers are for when you want to do something repeatedly at regular intervals
+1. implements:
+	a. time.Tick(interval)
+	b. time.NewTicker(interval)
+2. application
+	a. crontab
+	b. rate limiter: schedule requests
  */
 func main() {
-	ticker1(5, 500 * time.Millisecond)
-	ticker2(5, 500 * time.Millisecond)
+	crontab(5, 500 * time.Millisecond)
+	rateLimiter(5, 500 * time.Millisecond)
 }
 
-func ticker2(count int, interval time.Duration)  {
-	fmt.Println("***ticker 2")
+// time.Tick(interval)
+func rateLimiter(count int, interval time.Duration)  {
+	fmt.Println("***rate limiter")
 	requests := make(chan int)
 	go func() {
 		for i := 1; i <= count; i++ {
@@ -30,8 +37,9 @@ func ticker2(count int, interval time.Duration)  {
 	}
 }
 
-func ticker1(count int, interval time.Duration) {
-	fmt.Println("***ticker 1")
+// time.NewTicker(interval)
+func crontab(count int, interval time.Duration) {
+	fmt.Println("***crontab")
 	c :=0
 	ticker := time.NewTicker(interval)
 	for t := range ticker.C {

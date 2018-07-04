@@ -13,6 +13,8 @@
 * error
 * patterns
 * json
+* sort
+* web
 * cryptography
 * os
 * execute commands

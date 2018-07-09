@@ -5,6 +5,7 @@ import (
 	"os"
 	"log"
 	"path/filepath"
+	"bufio"
 	"strings"
 )
 
@@ -12,14 +13,18 @@ func main() {
 	var fpath = "file/data/file-write-example.txt"
 
 	mkFile(fpath)
+
+	checkWritePermission(fpath)
+
 	f, err := os.OpenFile(fpath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0755)
 	if err != nil {
 		log.Fatal(err)
 	}
-	checkWritePermission(fpath)
+	defer f.Close()
 
 	writeBytes(f, []byte("hello, bytes\r"))
 	writeString(f, "hello, string\r")
+	buffWriter(f)
 
 	rename(fpath, strings.Replace(fpath, "file-write-example", "file-write-new", -1))
 
@@ -60,6 +65,19 @@ func writeString(f *os.File, content string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func buffWriter(f *os.File)  {
+	fmt.Println("*** buffered writer")
+	//f,_ := os.Create(fpath)
+	//defer f.Close()
+	f.Sync()
+	w := bufio.NewWriter(f)
+	n, _ :=w.Write([]byte("buffered bytes\r"))
+	fmt.Println("write", n, "bytes into file")
+	n, _ = w.WriteString("buffered string\r")
+	w.Flush()
+	fmt.Println("write", n, "bytes into file")
 }
 
 func checkWritePermission(fpath string) {

@@ -16,7 +16,22 @@
 * patterns
 * json
 * sort
-* web
+* web frameworks
 * cryptography
 * os
 * execute commands
+* orm
+* logging
+
+---
+## web frameworks
+* [Gin](https://github.com/gin-gonic/gin): Features a Martini-like API with much better performance
+* [iris](https://github.com/kataras/iris): The fastest backend community-driven web framework on (THIS) Earth.
+* [kit](https://github.com/go-kit/kit): A standard library for microservices.
+
+## orm
+* [GORM](http://doc.gorm.io/)
+
+## logging
+* [logrus](https://github.com/Sirupsen/logrus)
+* [zap](https://github.com/uber-go/zap)

@@ -23,7 +23,8 @@ func getLogData() LogData  {
 }
 
 func simpleLog()  {
-	logrus.Info("a simple log msg")
+	logrus.Info("a simple INFO log")
+	logrus.Debug("a simple DEBUG log")
 }
 
 func fieldsLog()  {
@@ -60,6 +61,7 @@ func init()  {
 		FullTimestamp: true,
 		TimestampFormat: "2006-01-02 15:04:05",
 	})
+	logrus.SetLevel(logrus.DebugLevel)
 }
 
 func main()  {

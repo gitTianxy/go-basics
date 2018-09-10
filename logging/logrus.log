@@ -1,5 +1,0 @@
-time="2018-09-07 12:03:11" level=info msg="a log msg write to file & stdout" 
-time="2018-09-07 12:03:11" level=info msg="http info" request_id=1 user_ip=0.0.0.0 
-time="2018-09-07 12:03:11" level=error msg="http error" request_id=1 user_ip=0.0.0.0 
- user_ip=0.0.0.0 
- [31muser_ip[0m=0.0.0.0

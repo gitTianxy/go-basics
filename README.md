@@ -20,7 +20,7 @@
 * cryptography
 * os
 * execute commands
-* orm
+* database
 * logging
 
 ---
@@ -29,7 +29,14 @@
 * [iris](https://github.com/kataras/iris): The fastest backend community-driven web framework on (THIS) Earth.
 * [kit](https://github.com/go-kit/kit): A standard library for microservices.
 
-## orm
+## database
+### driver
+* [go-sql-driver](https://github.com/go-sql-driver/mysql)
+
+### dialect
+* [mysql](https://github.com/jinzhu/gorm/dialects/mysql)
+
+### ORM
 * [GORM](http://doc.gorm.io/)
 
 ## logging

@@ -45,7 +45,6 @@ func getDb() *gorm.DB {
 
 func initTbl(db *gorm.DB) {
 	if !db.HasTable(&PODemo{}) {
-		db.CreateTable(&PODemo{})
 		db.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8").
 			CreateTable(&PODemo{})
 	}

@@ -22,6 +22,7 @@
 * execute commands
 * database
 * logging
+* ui
 
 ---
 ## web frameworks
@@ -42,3 +43,6 @@
 ## logging
 * [logrus](https://github.com/Sirupsen/logrus)
 * [zap](https://github.com/uber-go/zap)
+
+## ui
+* [robotgo](https://github.com/go-vgo/robotgo)

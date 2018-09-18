@@ -1,9 +1,9 @@
 package main
 
 import (
-    "fmt"
-    "github.com/go-vgo/robotgo"
-    "time"
+"fmt"
+"github.com/go-vgo/robotgo"
+"time"
 )
 
 func main() {

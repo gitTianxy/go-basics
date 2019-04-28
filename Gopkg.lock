@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:167b6f65a6656de568092189ae791253939f076df60231fdd64588ac703892a1"
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
+  version = "v0.3.0"
+
+[[projects]]
   branch = "master"
   digest = "1:10880e4ec734bec4960ce1dcd11673c5f190ccd8278843a737b8c4c1be94e4af"
   name = "github.com/BurntSushi/xgb"
@@ -28,12 +36,60 @@
   revision = "f7c97cef3b4e6c88280a5a7091c3314e815ca243"
 
 [[projects]]
+  digest = "1:01a19cb3976c197988ffa67bca825abe5cbb286b9a083936e6caa8153e059c3b"
+  name = "github.com/Joker/jade"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "35b3f5bdbcc920cd31f4870536dbc63be8530541"
+  version = "v0.7.0"
+
+[[projects]]
   digest = "1:3ccf8ba7afe02fd470c4f07d6eea4d0e6875da3d129f95b925f2003ce5dd2024"
   name = "github.com/StackExchange/wmi"
   packages = ["."]
   pruneopts = "NUT"
   revision = "5d049714c4a64225c3c79a7cf7d02f7fb5b96338"
   version = "1.0.0"
+
+[[projects]]
+  digest = "1:d016c155f48687a171dfcb1ba6d117bbf09f76fa37ed8ac00591890119e1480b"
+  name = "github.com/aymerick/raymond"
+  packages = [
+    ".",
+    "ast",
+    "lexer",
+    "parser",
+  ]
+  pruneopts = "NUT"
+  revision = "2eebd0f5dd9564c0c6e439df11d8a3c7b9b9ab11"
+  version = "v2.0.2"
+
+[[projects]]
+  branch = "master"
+  digest = "1:cd9a379ee8a6ab8cda0c3a0be46d073119f919e0d3384eb7604677b9a6ba1983"
+  name = "github.com/eknkc/amber"
+  packages = [
+    ".",
+    "parser",
+  ]
+  pruneopts = "NUT"
+  revision = "cdade1c073850f4ffc70a829e31235ea6892853b"
+
+[[projects]]
+  digest = "1:52ec55889de2c93a772ceba253313c12f65444aac61a11182d4d119ef97479e8"
+  name = "github.com/fatih/structs"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "a720dfa8df582c51dee1b36feabb906bde1588bd"
+  version = "v1.0"
+
+[[projects]]
+  digest = "1:97fe15521b94567623f129867afbcdbe4010c471ed295a5dd2d458656f18678a"
+  name = "github.com/flosch/pongo2"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "5e81b817a0c48c1c57cdf1a9056cf76bdee02ca9"
+  version = "v3.0"
 
 [[projects]]
   branch = "master"
@@ -66,6 +122,25 @@
   pruneopts = "NUT"
   revision = "a41e3c4b706f6ae8dfbff342b06e40fa4d2d0506"
   version = "v1.2.1"
+
+[[projects]]
+  digest = "1:1c109e91a99627f9c80e8794d80773c8532dfcf234b45cdb6a6388b30a5bb5e7"
+  name = "github.com/go-playground/locales"
+  packages = [
+    ".",
+    "currency",
+  ]
+  pruneopts = "NUT"
+  revision = "f63010822830b6fe52288ee52d5a1151088ce039"
+  version = "v0.12.1"
+
+[[projects]]
+  digest = "1:1683152827ebac377858b53a6ad0be90fb1711061c7e580c5dc719834a349162"
+  name = "github.com/go-playground/universal-translator"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "b32fa301c9fe55953584134cb6853a13c87ec0a1"
+  version = "v0.16.0"
 
 [[projects]]
   digest = "1:1c9db302f5e172d283a37560842163450a1ebfd478581afa4f7bf00882c93a39"
@@ -120,6 +195,80 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:e56684607ec9bf7edfd523999f0a307ebdce16469becdd3253c622ea6b330ddb"
+  name = "github.com/kataras/golog"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "03be101463868edc5a81f094fc68a5f6c1b5503a"
+
+[[projects]]
+  digest = "1:0def00637524e7ef1544d53395c0af66e5706faa658adce39740a625498623b6"
+  name = "github.com/kataras/iris"
+  packages = [
+    ".",
+    "cache",
+    "cache/cfg",
+    "cache/client",
+    "cache/client/rule",
+    "cache/entry",
+    "cache/ruleset",
+    "cache/uri",
+    "context",
+    "core/errors",
+    "core/handlerconv",
+    "core/host",
+    "core/memstore",
+    "core/netutil",
+    "core/router",
+    "core/router/macro",
+    "core/router/macro/interpreter/ast",
+    "core/router/macro/interpreter/lexer",
+    "core/router/macro/interpreter/parser",
+    "core/router/macro/interpreter/token",
+    "core/router/node",
+    "middleware/logger",
+    "middleware/recover",
+    "mvc",
+    "mvc/activator",
+    "sessions",
+    "view",
+  ]
+  pruneopts = "NUT"
+  revision = "6323beedf8f9cfbf90ccdcbef2cfb4caf673ca76"
+  version = "v8.3.4"
+
+[[projects]]
+  branch = "master"
+  digest = "1:0fdc02144fb82ed23de8d1b0bfd457789a9ef702f3eec0fdcbd8a004f0a70625"
+  name = "github.com/kataras/pio"
+  packages = [
+    ".",
+    "terminal",
+  ]
+  pruneopts = "NUT"
+  revision = "a9733b5b6b83d32b479aacd51d26ef6018261963"
+
+[[projects]]
+  digest = "1:bc00f32084cbf3d1af8adf273c7dc132d55d88762231c0c26c136e576feddb55"
+  name = "github.com/klauspost/compress"
+  packages = [
+    "flate",
+    "gzip",
+  ]
+  pruneopts = "NUT"
+  revision = "b939724e787a27c0005cabe3f78e7ed7987ac74f"
+  version = "v1.4.0"
+
+[[projects]]
+  digest = "1:5e55a8699c9ff7aba1e4c8952aeda209685d88d4cb63a8766c338e333b8e65d6"
+  name = "github.com/klauspost/cpuid"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
+  version = "v1.1"
+
+[[projects]]
+  branch = "master"
   digest = "1:07cd50f8e6f4c9ecb6898c1b8506d92e6b85329f7f1be695335373e6240a56eb"
   name = "github.com/lxn/win"
   packages = ["."]
@@ -133,6 +282,14 @@
   pruneopts = "NUT"
   revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   version = "v0.0.4"
+
+[[projects]]
+  digest = "1:a127ff6552f64ae4ff4ccc051201edba258f545221f40b4bdf1c2a7db8c0906b"
+  name = "github.com/microcosm-cc/bluemonday"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "82c7118e8ccf7403d4860175d97bb635e8e28239"
+  version = "v1.0.1"
 
 [[projects]]
   digest = "1:2f42fa12d6911c7b7659738758631bec870b7e9b4c6be5444f963cdcfccc191f"
@@ -151,12 +308,44 @@
   version = "1.0.1"
 
 [[projects]]
+  digest = "1:4c6fcb84339d389cf54454b75cbf5bfac0e542028cabb339613935ab78cbed83"
+  name = "github.com/monoculum/formam"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "0a5cdaa81e2ed9650363bfd688c752557e6a9460"
+  version = "v3.1"
+
+[[projects]]
   digest = "1:cbce4bec99f826d7723b207896604611fcd914bc550fb64410d613966834f0dc"
   name = "github.com/otiai10/gosseract"
   packages = ["."]
   pruneopts = "NUT"
   revision = "b026a6fd291f00736db60738f4e83a79d26359cb"
   version = "v2.2.0"
+
+[[projects]]
+  digest = "1:4e5a9cf82174cea34d2a04859fa7c22444d0f597c6666ebe32397d648c03c60a"
+  name = "github.com/russross/blackfriday"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "cadec560ec52d93835bf2f15bd794700d3a2473b"
+  version = "v2.0.0"
+
+[[projects]]
+  digest = "1:40448654e044326566a6950a18a4e076388366f4e3186711a888d1706fa196a0"
+  name = "github.com/ryanuber/columnize"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "983d3a5fab1bf04d1b412465d2d9f8430e2e917e"
+  version = "v2.1.0"
+
+[[projects]]
+  digest = "1:6bc0652ea6e39e22ccd522458b8bdd8665bf23bdc5a20eec90056e4dc7e273ca"
+  name = "github.com/satori/go.uuid"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
 
 [[projects]]
   digest = "1:7395b855a6078ad2e6c40311402a057a91125fb9f32cf228e1b32cdc57c33538"
@@ -180,6 +369,14 @@
   packages = ["."]
   pruneopts = "NUT"
   revision = "bb4de0191aa41b5507caa14b0650cdbddcd9280b"
+
+[[projects]]
+  branch = "master"
+  digest = "1:debf1a119378d059b68925f1796851b6855bfc2f55419a50d634ecce3eabd8e8"
+  name = "github.com/shurcooL/sanitized_anchor_name"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "86672fcb3f950f35f2e675df2240550f2a50762f"
 
 [[projects]]
   digest = "1:dd698a7a167998072c3df653aba78d4869ce76cf2d484170114ffb78be70dd35"
@@ -238,11 +435,33 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:dedf20eb0d3e8d6aa8a4d3d2fae248222b688ed528201995e152cc497899123c"
+  name = "golang.org/x/crypto"
+  packages = [
+    "acme",
+    "acme/autocert",
+  ]
+  pruneopts = "NUT"
+  revision = "0e37d006457bf46f9e6692014ba72ef82c33022c"
+
+[[projects]]
+  branch = "master"
   digest = "1:9a2af239201fee92f0e90db0f139b74ab072b7e0dff9a205b8513a26889e78ba"
   name = "golang.org/x/image"
   packages = ["bmp"]
   pruneopts = "NUT"
   revision = "c73c2afc3b812cdd6385de5a50616511c4a3d458"
+
+[[projects]]
+  branch = "master"
+  digest = "1:a5ae8f624991c4156ab2610befdbc78ea3a961473ce4846cc34342649cb81878"
+  name = "golang.org/x/net"
+  packages = [
+    "html",
+    "html/atom",
+  ]
+  pruneopts = "NUT"
+  revision = "26e67e76b6c3f6ce91f7c52def5af501b4e0f3a2"
 
 [[projects]]
   branch = "master"
@@ -264,6 +483,14 @@
   version = "v8.18.2"
 
 [[projects]]
+  digest = "1:813792cd18ed752eea76bd63abc0b5ebd3329fb9d645eacc9b37da9027b7c673"
+  name = "gopkg.in/go-playground/validator.v9"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "e69e9a28bb62b977fdc58d051f1bb477b7cbe486"
+  version = "v9.21.0"
+
+[[projects]]
   digest = "1:7c95b35057a0ff2e19f707173cc1a947fa43a6eb5c4d300d196ece0334046082"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
@@ -279,8 +506,13 @@
     "github.com/go-sql-driver/mysql",
     "github.com/go-vgo/robotgo",
     "github.com/jinzhu/gorm",
+    "github.com/kataras/iris",
+    "github.com/kataras/iris/context",
+    "github.com/kataras/iris/middleware/logger",
+    "github.com/kataras/iris/middleware/recover",
     "github.com/sirupsen/logrus",
     "go.uber.org/zap",
+    "gopkg.in/go-playground/validator.v9",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
